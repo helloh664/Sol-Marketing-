@@ -12,6 +12,7 @@ import { TipCardCollage } from "./components/TipCardCollage";
 import { ScoreSlam } from "./components/ScoreSlam";
 import { StatStamp } from "./components/StatStamp";
 import { DateDoing } from "./components/DateDoing";
+import { EndCard } from "./components/EndCard";
 import { VIDEO } from "./theme";
 
 const { width, height, fps } = VIDEO;
@@ -214,6 +215,20 @@ export const RemotionRoot: React.FC = () => {
         height={height}
         defaultProps={{
           date: "Dec 2023",
+        }}
+      />
+
+      <Composition
+        id="EndCard"
+        component={EndCard}
+        durationInFrames={90}
+        fps={fps}
+        width={width}
+        height={height}
+        defaultProps={{
+          prompt: "Comment ",
+          keyword: "SHOW",
+          handle: "@solleesays",
         }}
       />
     </>
