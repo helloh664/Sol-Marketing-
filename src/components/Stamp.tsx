@@ -21,6 +21,10 @@ export type StampProps = {
   flashOnLastWord?: boolean;
   /** Delay (frames) before the first word starts. */
   startFrame?: number;
+  /** Uppercase the words. Defaults to true. */
+  uppercase?: boolean;
+  /** Vertical placement of the phrase. Defaults to "center". */
+  verticalAlign?: "center" | "lower-third";
 };
 
 /**
@@ -34,17 +38,21 @@ export const Stamp: React.FC<StampProps> = ({
   perWordStagger = 6,
   flashOnLastWord = false,
   startFrame = 0,
+  uppercase = true,
+  verticalAlign = "center",
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const words = text.split(/\s+/).filter(Boolean);
   const resolved = resolveColor(color);
+  const lowerThird = verticalAlign === "lower-third";
 
   return (
     <AbsoluteFill
       style={{
-        justifyContent: "center",
+        justifyContent: lowerThird ? "flex-end" : "center",
         alignItems: "center",
+        paddingBottom: lowerThird ? "18%" : undefined,
       }}
     >
       <div
@@ -98,7 +106,7 @@ export const Stamp: React.FC<StampProps> = ({
                 fontSize,
                 lineHeight: 1,
                 letterSpacing: "0.01em",
-                textTransform: "uppercase",
+                textTransform: uppercase ? "uppercase" : "none",
                 color: resolved,
                 willChange: "transform, opacity",
               }}

@@ -118,6 +118,25 @@ export const RemotionRoot: React.FC = () => {
         width={width}
         height={height}
       />
+
+      <Composition
+        id="HookStamp"
+        component={StampReel}
+        durationInFrames={45}
+        fps={fps}
+        width={width}
+        height={height}
+        defaultProps={{
+          text: "live. cold. no edits.",
+          color: "amber",
+          fontSize: 130,
+          perWordStagger: 5,
+          flashOnLastWord: true,
+          startFrame: 0,
+          uppercase: false,
+          verticalAlign: "lower-third",
+        }}
+      />
     </>
   );
 };
