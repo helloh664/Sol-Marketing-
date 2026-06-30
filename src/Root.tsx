@@ -4,6 +4,7 @@ import { Stamp, type StampProps } from "./components/Stamp";
 import { KineticList, type KineticListProps } from "./components/KineticList";
 import { TipCardCollage } from "./components/TipCardCollage";
 import { ScoreSlam } from "./components/ScoreSlam";
+import { StatStamp } from "./components/StatStamp";
 import { VIDEO } from "./theme";
 
 const { width, height, fps } = VIDEO;
@@ -149,6 +150,18 @@ export const RemotionRoot: React.FC = () => {
         defaultProps={{
           value: "1600",
           small: false,
+        }}
+      />
+
+      <Composition
+        id="StatStamp"
+        component={StatStamp}
+        durationInFrames={60}
+        fps={fps}
+        width={width}
+        height={height}
+        defaultProps={{
+          stagger: 12,
         }}
       />
     </>
