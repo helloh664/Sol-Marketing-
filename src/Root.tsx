@@ -11,6 +11,7 @@ import { KineticList, type KineticListProps } from "./components/KineticList";
 import { TipCardCollage } from "./components/TipCardCollage";
 import { ScoreSlam } from "./components/ScoreSlam";
 import { StatStamp } from "./components/StatStamp";
+import { DateDoing } from "./components/DateDoing";
 import { VIDEO } from "./theme";
 
 const { width, height, fps } = VIDEO;
@@ -202,6 +203,18 @@ export const RemotionRoot: React.FC = () => {
         fps={fps}
         width={width}
         height={height}
+      />
+
+      <Composition
+        id="DateDoing"
+        component={DateDoing}
+        durationInFrames={60}
+        fps={fps}
+        width={width}
+        height={height}
+        defaultProps={{
+          date: "Dec 2023",
+        }}
       />
     </>
   );
