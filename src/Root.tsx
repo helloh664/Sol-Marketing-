@@ -2,6 +2,7 @@ import React from "react";
 import { AbsoluteFill, Composition, Sequence } from "remotion";
 import { Stamp, type StampProps } from "./components/Stamp";
 import { KineticList, type KineticListProps } from "./components/KineticList";
+import { TipCardCollage } from "./components/TipCardCollage";
 import { VIDEO } from "./theme";
 
 const { width, height, fps } = VIDEO;
@@ -107,6 +108,15 @@ export const RemotionRoot: React.FC = () => {
             "Built for creators",
           ],
         }}
+      />
+
+      <Composition
+        id="TipCardCollage"
+        component={TipCardCollage}
+        durationInFrames={90}
+        fps={fps}
+        width={width}
+        height={height}
       />
     </>
   );
