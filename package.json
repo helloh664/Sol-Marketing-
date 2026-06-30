@@ -1,0 +1,27 @@
+{
+  "name": "sol-marketing-reels",
+  "version": "1.0.0",
+  "description": "Remotion project for vertical Instagram Reels (1080x1920 @ 30fps)",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "remotion studio",
+    "studio": "remotion studio",
+    "build": "remotion bundle",
+    "upgrade": "remotion upgrade",
+    "render": "remotion render",
+    "render:prores": "remotion render --codec=prores --prores-profile=4444 --pixel-format=yuva444p10le --image-format=png",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.0",
+    "@remotion/google-fonts": "^4.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "remotion": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.4.0"
+  }
+}
