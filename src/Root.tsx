@@ -3,6 +3,7 @@ import { AbsoluteFill, Composition, Sequence } from "remotion";
 import { Stamp, type StampProps } from "./components/Stamp";
 import { KineticList, type KineticListProps } from "./components/KineticList";
 import { TipCardCollage } from "./components/TipCardCollage";
+import { ScoreSlam } from "./components/ScoreSlam";
 import { VIDEO } from "./theme";
 
 const { width, height, fps } = VIDEO;
@@ -135,6 +136,19 @@ export const RemotionRoot: React.FC = () => {
           startFrame: 0,
           uppercase: false,
           verticalAlign: "lower-third",
+        }}
+      />
+
+      <Composition
+        id="ScoreSlam"
+        component={ScoreSlam}
+        durationInFrames={75}
+        fps={fps}
+        width={width}
+        height={height}
+        defaultProps={{
+          value: "1600",
+          small: false,
         }}
       />
     </>
