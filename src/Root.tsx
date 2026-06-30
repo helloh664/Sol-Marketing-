@@ -1,5 +1,11 @@
 import React from "react";
-import { AbsoluteFill, Composition, Sequence } from "remotion";
+import {
+  AbsoluteFill,
+  Composition,
+  interpolate,
+  Sequence,
+  useCurrentFrame,
+} from "remotion";
 import { Stamp, type StampProps } from "./components/Stamp";
 import { KineticList, type KineticListProps } from "./components/KineticList";
 import { TipCardCollage } from "./components/TipCardCollage";
@@ -51,6 +57,30 @@ const ComboReel: React.FC<ComboProps> = ({ headline, items }) => (
     </Sequence>
   </AbsoluteFill>
 );
+
+// "trust me bro" — <Stamp> handles the quick comedic scale-in press; this
+// wrapper adds the slight tilt and a tiny rotational wobble that settles.
+const TrustMeBro: React.FC = () => {
+  const frame = useCurrentFrame();
+  const baseTilt = -4;
+  const wobbleDecay = interpolate(frame, [4, 22], [1, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+  const wobble = Math.sin(frame * 0.9) * 3 * wobbleDecay;
+
+  return (
+    <AbsoluteFill style={{ transform: `rotate(${baseTilt + wobble}deg)` }}>
+      <Stamp
+        text="trust me bro"
+        color="amber"
+        fontSize={190}
+        perWordStagger={3}
+        uppercase={false}
+      />
+    </AbsoluteFill>
+  );
+};
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -163,6 +193,15 @@ export const RemotionRoot: React.FC = () => {
         defaultProps={{
           stagger: 12,
         }}
+      />
+
+      <Composition
+        id="TrustMeBro"
+        component={TrustMeBro}
+        durationInFrames={45}
+        fps={fps}
+        width={width}
+        height={height}
       />
     </>
   );
